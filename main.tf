@@ -20,7 +20,7 @@ module "s3" {
 
 module "kinesis_stream" {
   source         = "./modules/kinesis_stream"
-  stream_name    = var.kdf_name
+  stream_name    = var.kds_name
   shard_count    = 1
   retention_hours = var.retention_hours
 }
