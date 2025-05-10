@@ -3,6 +3,11 @@ variable "kinesis_stream" {
   type        = string
 }
 
+variable "kinesis_stream_arn" {
+  description = "ARN do Kinesis Stream"
+  type        = string
+}
+
 variable "lambda_name" {
   description = "Nome da funcao lambda producer"
   type        = string
