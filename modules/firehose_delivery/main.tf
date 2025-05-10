@@ -55,7 +55,7 @@ resource "aws_iam_role_policy" "firehose_policy" {
 
 resource "aws_kinesis_firehose_delivery_stream" "this" {
   name        = var.firehose_name
-  destination = "s3"
+  destination = "extended_s3"
 
   kinesis_source_configuration {
     kinesis_stream_arn = var.kinesis_stream_arn
