@@ -50,3 +50,18 @@ variable "kda_name" {
   description = "Nome do Kinesis Firehose"
   type        = string
 }
+
+##############################################################
+# Glue catalog
+variable "glue_database_name" {
+  description = "Glue catalog database name"
+  type        = string
+}
+variable "glue_table_name" {
+  description = "Glue catalog table name"
+  type        = string
+}
+variable "glue_s3_output_path" {
+  description = "S3 output path for Glue and Firehose"
+  type        = string
+}
