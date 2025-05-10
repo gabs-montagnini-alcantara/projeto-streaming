@@ -39,4 +39,13 @@ module "firehose_delivery" {
   firehose_name        = var.kdf_name
   kinesis_stream_arn   = module.kinesis_stream.stream_arn
   s3_bucket_arn        = module.s3.bucket_arn
+  glue_database_name   = module.glue_catalog.database_name
+  glue_table_name      = module.glue_catalog.table_name
+}
+
+module "glue_catalog" {
+  source            = "./modules/glue_catalog"
+  database_name     = var.glue_database_name
+  table_name        = var.glue_table_name
+  s3_output_path    = module.s3.bucket_name
 }
