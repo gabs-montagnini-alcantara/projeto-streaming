@@ -76,6 +76,12 @@ resource "aws_kinesis_firehose_delivery_stream" "this" {
     bucket_arn         = var.s3_bucket_arn
     buffering_interval = 60
     compression_format = "UNCOMPRESSED"
+    
+    buffering_hints {
+      interval_in_seconds = 300
+      size_in_mbs         = 64  # Ajuste para garantir o mínimo de 64 MB
+    }
+
 data_format_conversion_configuration {
       input_format_configuration {
         deserializer {
