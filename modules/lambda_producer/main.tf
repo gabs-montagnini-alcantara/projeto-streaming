@@ -19,6 +19,25 @@ resource "aws_iam_policy_attachment" "lambda_basic_execution" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
+resource "aws_iam_role_policy" "lambda_kinesis_policy" {
+  name = "lambda-kinesis-putrecord"
+  role = aws_iam_role.lambda_role.name
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect = "Allow",
+        Action = [
+          "kinesis:PutRecord"
+        ],
+        Resource = var.kinesis_stream_arn
+      }
+    ]
+  })
+}
+
+
 resource "aws_lambda_function" "producer" {
   function_name = var.lambda_name
   role          = aws_iam_role.lambda_role.arn
