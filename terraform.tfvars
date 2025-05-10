@@ -5,7 +5,7 @@ bucket_name = "300821235250-streaming-camada-sor"
 # Variaveis do KDS
 kds_name = "kinesis-data-streams-projeto-27abd"
 shard_count = 1
-retention_hours = 1
+retention_hours = 24 # Minimo eh 24
 
 # Variaveis do KDF (firehose)
 kdf_name = "kinesis-data-firehose-projeto-27abd"
