@@ -17,3 +17,8 @@ kda_name = "kinesis-data-analytics-projeto-27abd"
 lambda_name     = "lambda-producer-projeto-27abd"
 memory_size     = 512
 timeout         = 60
+
+# Variaveis do Glue Catalog
+glue_database_name = "sor_database"
+glue_table_name    = "sor_table"
+glue_s3_output_path = "s3://meu-bucket-glue/output/"
