@@ -28,6 +28,7 @@ module "kinesis_stream" {
 module "lambda_producer" {
   source          = "./modules/lambda_producer"
   kinesis_stream  = module.kinesis_stream.stream_name
+  kinesis_stream_arn  = module.kinesis_stream.stream_arn
   lambda_name     = var.lambda_name
   memory_size     = var.memory_size
   timeout         = var.timeout
